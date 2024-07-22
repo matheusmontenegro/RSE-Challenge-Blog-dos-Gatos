@@ -106,20 +106,25 @@ main .article-image {
     aspect-ratio: 16/9;
     object-fit: cover;
 }
-main, article {
+
+main,
+article {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-section, aside {
+section,
+aside {
     padding: 0 2.2rem;
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
     gap: .8rem;
 }
+
 .button-wrapper img {
     background-color: var(--color-darkblue);
     width: 4rem;
@@ -137,11 +142,11 @@ section, aside {
 }
 
 .button-wrapper img:first-child:hover {
-   transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .button-wrapper img+img:hover {
-   transform: scale(1.2, -1.2);
+    transform: scale(1.2, -1.2);
 }
 
 article p {
@@ -154,6 +159,7 @@ h1 {
     font-size: 2.4rem;
     font-weight: 700;
 }
+
 /* ASIDE */
 aside {
     grid-area: aside;
@@ -165,18 +171,18 @@ aside {
 
 .item {
     display: grid;
-    grid-template: 
-    "image details" auto / min(15.2rem, 42%) 1fr;
+    grid-template:
+        "image details" auto / min(15.2rem, 42%) 1fr;
     gap: 1.6rem;
     align-items: center;
 }
 
 
-.item:hover > .details {
+.item:hover>.details {
     transform: scale(1.03);
 }
 
-.item:hover > img{
+.item:hover>img {
     rotate: -1deg;
     transform: scale(1.03);
     filter: hue-rotate(30deg) contrast(120%) saturate(200%);
@@ -210,37 +216,44 @@ aside {
 /* FOOTER */
 footer {
     grid-area: footer;
+    width: 100vw;
     background-color: var(--color-mediumblue);
     color: var(--color-white);
     padding: 2.6rem 1.6rem;
 }
+
 footer p {
     font-weight: 600;
     text-align: center;
 }
 
-.article-image, main section{
+.article-image,
+main section {
     animation: appear 1s .4s backwards;
 }
 
-.item, aside h1 {
+.item,
+aside h1 {
     --delay: 1s;
     animation: item-appearance .4s var(--delay) backwards;
 }
-@keyframes appear{
+
+@keyframes appear {
     0% {
         transform: translateX(-150%);
     }
+
     50% {
         transform: translateX(20%) rotate(15deg);
     }
-    
+
 }
 
-@keyframes item-appearance{
+@keyframes item-appearance {
     0% {
         transform: scale(0);
     }
+
     50% {
         transform: scale(1.15);
     }
@@ -250,15 +263,16 @@ footer p {
     #app {
         margin: auto;
         display: grid;
-        grid-template-areas: 
-        "header header header"
-        "main main aside"
-        "footer footer footer";
+        grid-template-areas:
+            "header header header"
+            "main main aside"
+            "footer footer footer";
         max-width: min(112rem, 100%);
         row-gap: 4rem;
-        column-gap: 3rem ;
+        column-gap: 3rem;
 
     }
+
     header::before {
         content: '';
         position: absolute;
@@ -268,14 +282,14 @@ footer p {
         top: 0;
         left: 0;
         background-color: var(--color-darkblue);
-    } 
+    }
 
     main {
         gap: 3rem;
         padding: 0 2.2rem;
     }
-    
-    main > img {
+
+    main>img {
         border-radius: .5rem;
         aspect-ratio: 16/9;
     }
@@ -285,25 +299,38 @@ footer p {
         align-items: center;
         justify-content: space-between;
     }
-    section, aside {
+
+    section,
+    aside {
         margin: 0;
         padding: 0;
     }
+
     html {
         position: relative;
     }
+    
+    footer {
+        display: none;
+    }
 
     html::after {
-        content: '';
+        content: '© 2023 - Rocketseat Explorer';
         margin: 0;
         position: absolute;
         z-index: -1;
         left: 20;
         width: 100%;
         height: 72px;
-        
-        bottom: 0;        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-white);
         background-color: var(--color-mediumblue);
+
+        font-weight: 600;
+        font-size: 1.6rem;
+        text-align: center;
 
     }
 
